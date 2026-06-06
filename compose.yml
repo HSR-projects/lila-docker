@@ -65,6 +65,7 @@ services:
     restart: unless-stopped
     ports:
       - 8080:80
+      - 80:80
     environment:
       - LILA_DOMAIN=${LILA_DOMAIN:-localhost:8080}
       - LILA_URL=${LILA_URL:-http://localhost:8080}
@@ -164,7 +165,10 @@ services:
       dockerfile: sbt.Dockerfile
     user: ${USER_ID:-}:${GROUP_ID:-}
     working_dir: /lila-fishnet
-    entrypoint: sbt app/run
+    # --server forces the JVM sbt client; lila-fishnet uses sbt 2.x which would
+    # otherwise try the native `sbtn` thin client (a glibc binary that can't run
+    # on this Alpine/musl image -> "unzip: short read" restart loop).
+    entrypoint: sbt --server app/run
     environment:
       - REDIS_HOST=redis
       # - HTTP_API_LOGGER=true
