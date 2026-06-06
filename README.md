@@ -1,12 +1,11 @@
 # lila-docker
 
-[![Publish Image](https://github.com/lichess-org/lila-docker/actions/workflows/publish-image.yml/badge.svg)](https://github.com/lichess-org/lila-docker/actions/workflows/publish-image.yml)
 
-Lichess development environment using Docker Compose, for developing on Mac, Linux, or Windows (via WSL).
+Playchess development environment using Docker Compose, for developing on Mac, Linux, or Windows (via WSL).
 
 The only requirement for running on your local machine is Docker Desktop, and optionally git. All the other dependencies (Scala, MongoDB, Node.js, etc) are installed and run in Docker containers.
 
-![image](https://github.com/user-attachments/assets/0192574a-4cb7-42da-a19e-e75af24b0565)
+
 
 ## Instructions
 
